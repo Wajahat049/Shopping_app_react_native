@@ -14,7 +14,7 @@ import Search from '../Components/Search';
 
 import DrawerContent from "./DrawerContent"
 import MainScreen from '../Components/MainScreen';
-
+import Signup from "../Components/Signup"
 
 
 
@@ -36,6 +36,8 @@ export default function App(props) {
                 <Drawer.Screen  name="Detail" component={Detail}  />
                 <Drawer.Screen  name="Search" component={Search}  />
                 <Drawer.Screen  name="Main" component={MainScreen}  />
+                <Drawer.Screen  name="Signup" component={Signup}  />
+
 
 
 

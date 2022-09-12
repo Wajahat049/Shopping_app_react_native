@@ -203,14 +203,15 @@ function GoogleSignIn(props) {
   if (!user) {
     return (
       <ScrollView style={styles.container} >
-        <View style={{ backgroundColor: "#1f1f14" }}>
-          <View style={{ margin: 7 }}>
-            <Icon name='menu-sharp'
-              size={40}
-              color='#ff6600'
-              onPress={() => props.navigation.openDrawer()}
-            />
-          </View>
+        <View  style={{backgroundColor:"#ff6600"}}>
+            <View style={{ margin: 7 }}>
+                    <Icon name='menu-sharp'
+                        size={40}
+                        color='white'
+                        onPress={() => props.navigation.openDrawer()}
+                    />
+           
+                </View>
         </View>
         <View style={styles.header}>
           <Text style={styles.text_header}>Shopping App</Text>

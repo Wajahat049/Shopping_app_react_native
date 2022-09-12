@@ -12,7 +12,6 @@ import {
     StatusBar
 } from 'react-native';
 import * as Animatable from 'react-native-animatable';
-import LinearGradient from 'react-native-linear-gradient';
 import FontAwesome from 'react-native-vector-icons/FontAwesome';
 import Feather from 'react-native-vector-icons/Feather';
 
@@ -190,14 +189,14 @@ const SignInScreen = ({navigation}) => {
                     style={styles.signIn}
                     onPress={() => {}}
                 >
-                <LinearGradient
-                    colors={['#08d4c4', '#01ab9d']}
+                <View
+                    color="black"
                     style={styles.signIn}
                 >
                     <Text style={[styles.textSign, {
                         color:'#fff'
                     }]}>Sign Up</Text>
-                </LinearGradient>
+                </View>
                 </TouchableOpacity>
 
                 <TouchableOpacity
