@@ -203,19 +203,23 @@ function GoogleSignIn(props) {
   if (!user) {
     return (
       <ScrollView style={styles.container} >
-        <View  style={{backgroundColor:"#ff6600"}}>
-            <View style={{ margin: 7 }}>
-                    <Icon name='menu-sharp'
-                        size={40}
-                        color='white'
-                        onPress={() => props.navigation.openDrawer()}
-                    />
-           
-                </View>
+        <View style={{ backgroundColor: "#ff6600" }}>
+          <View style={{ margin: 7 }}>
+            <Icon name='menu-sharp'
+              size={40}
+              color='white'
+              onPress={() => props.navigation.openDrawer()}
+            />
+
+          </View>
         </View>
         <View style={styles.header}>
           <Text style={styles.text_header}>Shopping App</Text>
         </View>
+
+        <FadeInView>
+          <Image style={{ alignSelf: "center", width: 150, height: 140, marginTop: -50, marginBottom: 10 }} source={require("../Images/Logo.png")} />
+        </FadeInView>
 
         <Animatable.View
           animation="fadeInUpBig"
@@ -224,9 +228,7 @@ function GoogleSignIn(props) {
               backgroundColor: "white"
             }]}
         >
-          <FadeInView>
-            <Image style={{ alignSelf: "center", width: 150, height: 140 }} source={require("../Images/Logo.png")} />
-          </FadeInView>
+
           <Text style={[styles.text_footer, {
             color: '#1f1f14'
           }]}>Username</Text>
@@ -321,7 +323,6 @@ function GoogleSignIn(props) {
                 borderColor: '#ff6600',
                 backgroundColor: '#ff6600',
                 borderWidth: 1,
-                marginTop: 15
               }]}
               onPress={() => { loginHandle(data.username, data.password) }}
             >
@@ -346,7 +347,7 @@ function GoogleSignIn(props) {
               }]}>Sign Up</Text>
             </TouchableOpacity>
           </View>
-          <GoogleSigninButton style={{ margin: 30, alignSelf: "center", height: 65 }}
+          <GoogleSigninButton style={{ marginLeft: 30, marginRight: 30, marginTop: 10, alignSelf: "center", height: 65 }}
             size={GoogleSigninButton.Size.Wide}
 
             onPress={() => onGoogleButtonPress().then(() => console.log('Signed in with Google!'))}
@@ -405,16 +406,6 @@ function GoogleSignIn(props) {
             textDecorationLine: "underline",
             textTransform: "uppercase",
           }}>{user.displayName}</Text>
-
-          {/* <Text style={{
-        fontSize: 22,
-        fontWeight: 'bold',
-        color: '#ff6600',
-        textShadowColor: "rgb(106, 109, 124)",
-        textShadowOffset: { width: 1, height: 1 },
-        textShadowRadius: 15,
-        margin: 10
-    }}>{user.email}</Text> */}
           <View style={{ margin: 55 }}>
             <Button icon="logout"
               mode="contained"
@@ -463,7 +454,7 @@ const styles = StyleSheet.create({
     paddingBottom: 50,
     textAlign: "center",
     alignItems: "center",
-    marginTop: 40
+    marginTop: 10
   },
   footer: {
     flex: 3,
@@ -471,7 +462,7 @@ const styles = StyleSheet.create({
     borderTopLeftRadius: 30,
     borderTopRightRadius: 30,
     paddingHorizontal: 30,
-    paddingVertical: 15
+    paddingVertical: 20
   },
   text_header: {
     color: '#fff',
@@ -511,7 +502,7 @@ const styles = StyleSheet.create({
   },
   button: {
     alignItems: 'center',
-    marginTop: 50
+    marginTop: 25
   },
   signIn: {
     width: '100%',
