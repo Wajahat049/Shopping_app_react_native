@@ -367,7 +367,7 @@ function GoogleSignIn(props) {
 
       <>
 
-        <View style={{ backgroundColor: "rgb(80, 80, 90)" }}>
+        <View style={{ backgroundColor: "#1f1f14" }}>
           <View style={{ margin: 7 }}>
             <Icon name='menu-sharp'
               size={40}
@@ -378,45 +378,58 @@ function GoogleSignIn(props) {
           </View>
         </View>
 
-        <View style={{ flex: 1, alignItems: 'center', paddingTop: 70, backgroundColor: 'white' }}>
+        <View style={styles.container}>
 
-          <Avatar.Image
-            source={{
-              uri: user.photoURL
-            }}
-            size={200}
-          />
-          <Text style={{
-            fontSize: 35,
-            fontWeight: 'bold',
-            color: '#ff6600',
-            textShadowColor: "rgb(106, 109, 124)",
-            textShadowOffset: { width: 1, height: 1 },
-            textShadowRadius: 15,
-            marginTop: 25
-          }}>WELCOME</Text>
-          <Text style={{
-            fontSize: 30,
-            fontWeight: 'bold',
-            color: '#ff6600',
-            textShadowColor: "rgb(106, 109, 124)",
-            textShadowOffset: { width: 1, height: 1 },
-            textShadowRadius: 15,
-            margin: 20,
-            textDecorationLine: "underline",
-            textTransform: "uppercase",
-          }}>{user.displayName}</Text>
-          <View style={{ margin: 55 }}>
-            <Button icon="logout"
-              mode="contained"
-              labelStyle={{ color: "white", fontSize: 20 }}
-              color="#ff6600"
-              title="SignOut"
-              onPress={() => signout()}
-            >SIGN OUT</Button>
+          <View style={styles.logoheader}>
+            <Animatable.View
+              animation="bounceIn"
+              duraton="1500"
+            >
+              <Avatar.Image
+                source={{
+                  uri: user.photoURL
+                }}
+                size={200}
+              />
+            </Animatable.View>
+
           </View>
+          <Animatable.View
+            style={[styles.footer, {
+              backgroundColor: colors.background
+            }]}
+            animation="fadeInUpBig"
+          >
+            <Text style={[styles.title, {
+              color: colors.text
+            }]}>WELCOME!</Text>
 
+            <Text style={{
+              fontSize: 30,
+              fontWeight: 'bold',
+              color: '#ff6600',
+              textShadowColor: "rgb(106, 109, 124)",
+              textShadowOffset: { width: 1, height: 1 },
+              textShadowRadius: 5,
+              marginTop: 20,
+              textTransform: "uppercase",
+              textAlign: "center"
+            }}>{user.displayName}</Text>
+
+
+            <View style={{ margin: 70 }}>
+              <Button icon="logout"
+                mode="contained"
+                labelStyle={{ color: "white", fontSize: 20 }}
+                color="#ff6600"
+                title="SignOut"
+                onPress={() => signout()}
+              >SIGN OUT</Button>
+            </View>
+
+          </Animatable.View>
         </View>
+
       </>
     )
   }
@@ -440,7 +453,6 @@ function mapDispatchToProps(dispatch) {
 }
 
 export default connect(mapStateToProps, mapDispatchToProps)(GoogleSignIn)
-
 
 const styles = StyleSheet.create({
   container: {
@@ -514,5 +526,20 @@ const styles = StyleSheet.create({
   textSign: {
     fontSize: 18,
     fontWeight: 'bold'
+  },
+  title: {
+    color: '#1f1f14',
+    fontSize: 22,
+    fontWeight: 'bold',
+    textAlign: "center"
+  },
+  logoheader: {
+    flex: 1,
+    justifyContent: 'center',
+    paddingHorizontal: 20,
+    paddingBottom: 150,
+    textAlign: "center",
+    alignItems: "center",
+    marginTop: 150
   }
 });

@@ -80,7 +80,7 @@ function MainScreen(props){
         <Text style={{fontSize: 40,fontWeight: 'bold',color: '#ff6600',margin:10,textAlign:"center"}}>
                           Welcome to Shopping app
           </Text>
-          <Text style={{fontSize: 22,color: 'black',margin:10,textAlign:"center"}}>Delivering excitement, innovation and freshness.An exciting place for the whole family to shop.Enjoy your Shopping! </Text>
+          <Text style={{fontSize: 20,color: 'black',margin:10,textAlign:"center"}}>Delivering excitement, innovation and freshness.An exciting place for the whole family to shop.Enjoy your Shopping! </Text>
             {/* <Image resizeMode='stretch' source={require("../Images/shoppingGif.gif")} style={{height: 250, width: "100%"}}/> */}
             <Image resizeMode='stretch' source={require("../Images/shoppingGif2.gif")} style={{height: 200, width: "100%"}}/>
 
