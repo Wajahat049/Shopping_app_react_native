@@ -132,15 +132,15 @@ const styles = StyleSheet.create({
         backgroundColor: 'white',
         color: '#ff6600',
         borderRadius: 10,
-        shadowColor: "#ff6600",
+        shadowColor: "#000",
         shadowOffset: {
-            width: 5,
+            width: 0,
             height: 5,
         },
-        shadowOpacity: 2,
-        shadowRadius: 6.27,
+        shadowOpacity: 0.36,
+        shadowRadius: 6.68,
 
-        elevation: 10,
+        elevation: 11,
     },
     cardImg: {
         width: 140,
