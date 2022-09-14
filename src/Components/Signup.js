@@ -89,6 +89,7 @@ const SignInScreen = ({ navigation }) => {
                             size={20}
                         />
                         <TextInput
+                            placeholderTextColor={"gray"}
                             placeholder="Your Username"
                             style={styles.textInput}
                             autoCapitalize="none"
@@ -117,6 +118,7 @@ const SignInScreen = ({ navigation }) => {
                             size={20}
                         />
                         <TextInput
+                            placeholderTextColor={"gray"}
                             placeholder="Your Password"
                             secureTextEntry={data.secureTextEntry ? true : false}
                             style={styles.textInput}
@@ -152,6 +154,7 @@ const SignInScreen = ({ navigation }) => {
                             size={20}
                         />
                         <TextInput
+                            placeholderTextColor={"gray"}
                             placeholder="Confirm Your Password"
                             secureTextEntry={data.confirm_secureTextEntry ? true : false}
                             style={styles.textInput}

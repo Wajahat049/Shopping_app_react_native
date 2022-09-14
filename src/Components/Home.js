@@ -367,11 +367,11 @@ function GoogleSignIn(props) {
 
       <>
 
-        <View style={{ backgroundColor: "#1f1f14" }}>
+        <View style={{ backgroundColor: "#ff6600" }}>
           <View style={{ margin: 7 }}>
             <Icon name='menu-sharp'
               size={40}
-              color='#ff6600'
+              color='white'
               onPress={() => props.navigation.openDrawer()}
             />
 
@@ -457,7 +457,7 @@ export default connect(mapStateToProps, mapDispatchToProps)(GoogleSignIn)
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#ff6600'
+    backgroundColor: '#FF8C00'
   },
   header: {
     flex: 1,
