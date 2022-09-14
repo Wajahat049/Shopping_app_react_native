@@ -20,8 +20,6 @@ import Icon from 'react-native-vector-icons/Ionicons';
 import { useState } from 'react';
 
 import database from "@react-native-firebase/database";
-import { connect } from "react-redux"
-import { changeisorder } from '../Store/action';
 
 
 

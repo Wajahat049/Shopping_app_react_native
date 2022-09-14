@@ -200,6 +200,9 @@ function GoogleSignIn(props) {
   }, []);
 
 
+
+
+
   if (!user) {
     return (
       <ScrollView style={styles.container} >
@@ -239,7 +242,7 @@ function GoogleSignIn(props) {
               size={20}
             />
             <TextInput
-              placeholder="Your Username"
+              placeholder="Email or Username"
               placeholderTextColor="#666666"
               style={[styles.textInput, {
                 color: colors.text
@@ -279,7 +282,7 @@ function GoogleSignIn(props) {
               size={20}
             />
             <TextInput
-              placeholder="Your Password"
+              placeholder="Password"
               placeholderTextColor="#666666"
               secureTextEntry={data.secureTextEntry ? true : false}
               style={[styles.textInput, {
@@ -457,7 +460,7 @@ export default connect(mapStateToProps, mapDispatchToProps)(GoogleSignIn)
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#FF8C00'
+    backgroundColor: '#ff6600'
   },
   header: {
     flex: 1,

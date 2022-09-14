@@ -9,15 +9,21 @@ import {
     Platform,
     StyleSheet,
     ScrollView,
-    StatusBar
+    StatusBar,
+    ToastAndroid
 } from 'react-native';
 import * as Animatable from 'react-native-animatable';
 import FontAwesome from 'react-native-vector-icons/FontAwesome';
 import Feather from 'react-native-vector-icons/Feather';
+import database from "@react-native-firebase/database";
+import ContactIcon from 'react-native-vector-icons/MaterialCommunityIcons';
 
-const SignInScreen = ({ navigation }) => {
+
+
+const SignInScreen = (props) => {
 
     const [data, setData] = React.useState({
+        name: '',
         username: '',
         password: '',
         confirm_password: '',
@@ -42,17 +48,26 @@ const SignInScreen = ({ navigation }) => {
         }
     }
 
+    const textInputChangeName = (val) => {
+        if (val.length !== 0) {
+            setData({
+                ...data,
+                name: val,
+                check_textInputChange: true
+            });
+        } else {
+            setData({
+                ...data,
+                name: val,
+                check_textInputChange: false
+            });
+        }
+    }
+
     const handlePasswordChange = (val) => {
         setData({
             ...data,
             password: val
-        });
-    }
-
-    const handleConfirmPasswordChange = (val) => {
-        setData({
-            ...data,
-            confirm_password: val
         });
     }
 
@@ -63,11 +78,31 @@ const SignInScreen = ({ navigation }) => {
         });
     }
 
-    const updateConfirmSecureTextEntry = () => {
-        setData({
-            ...data,
-            confirm_secureTextEntry: !data.confirm_secureTextEntry
-        });
+    function SingUp() {
+        console.log("signup data => ", data)
+
+        const emailSplit = data.username.split('@')[0]
+        console.log("emailSplit", emailSplit)
+
+        if(!data.username){
+            database()
+            .ref(`Users/${emailSplit}`)
+            .set({
+                name: data.name,
+                username: data.username,
+                password: data.password
+            })
+            .then(() => {
+                console.log('Successfully SignUp')
+                ToastAndroid.show("Successfully SignUp!", ToastAndroid.SHORT)
+                props.navigation.navigate('Home')
+            }
+            );
+        }
+        else{
+            ToastAndroid.show("Email has already exist!", ToastAndroid.SHORT)
+        }
+
     }
 
     return (
@@ -81,7 +116,7 @@ const SignInScreen = ({ navigation }) => {
                 style={styles.footer}
             >
                 <ScrollView>
-                    <Text style={styles.text_footer}>Username</Text>
+                    <Text style={styles.text_footer}>Name</Text>
                     <View style={styles.action}>
                         <FontAwesome
                             name="user-o"
@@ -90,7 +125,36 @@ const SignInScreen = ({ navigation }) => {
                         />
                         <TextInput
                             placeholderTextColor={"gray"}
-                            placeholder="Your Username"
+                            placeholder="Name"
+                            style={styles.textInput}
+                            autoCapitalize="none"
+                            onChangeText={(val) => textInputChangeName(val)}
+                        />
+                        {data.check_textInputChange ?
+                            <Animatable.View
+                                animation="bounceIn"
+                            >
+                                <Feather
+                                    name="check-circle"
+                                    color="green"
+                                    size={20}
+                                />
+                            </Animatable.View>
+                            : null}
+                    </View>
+
+                    <Text></Text>
+
+                    <Text style={styles.text_footer}>Email</Text>
+                    <View style={styles.action}>
+                        <ContactIcon
+                            name="email-outline"
+                            color={"#ff6600"}
+                            size={25}
+                        />
+                        <TextInput
+                            placeholderTextColor={"gray"}
+                            placeholder=" Email or username"
                             style={styles.textInput}
                             autoCapitalize="none"
                             onChangeText={(val) => textInputChange(val)}
@@ -119,7 +183,7 @@ const SignInScreen = ({ navigation }) => {
                         />
                         <TextInput
                             placeholderTextColor={"gray"}
-                            placeholder="Your Password"
+                            placeholder="Password"
                             secureTextEntry={data.secureTextEntry ? true : false}
                             style={styles.textInput}
                             autoCapitalize="none"
@@ -144,41 +208,6 @@ const SignInScreen = ({ navigation }) => {
                         </TouchableOpacity>
                     </View>
 
-                    <Text style={[styles.text_footer, {
-                        marginTop: 35
-                    }]}>Confirm Password</Text>
-                    <View style={styles.action}>
-                        <Feather
-                            name="lock"
-                            color="#ff6600"
-                            size={20}
-                        />
-                        <TextInput
-                            placeholderTextColor={"gray"}
-                            placeholder="Confirm Your Password"
-                            secureTextEntry={data.confirm_secureTextEntry ? true : false}
-                            style={styles.textInput}
-                            autoCapitalize="none"
-                            onChangeText={(val) => handleConfirmPasswordChange(val)}
-                        />
-                        <TouchableOpacity
-                            onPress={updateConfirmSecureTextEntry}
-                        >
-                            {data.secureTextEntry ?
-                                <Feather
-                                    name="eye-off"
-                                    color="grey"
-                                    size={20}
-                                />
-                                :
-                                <Feather
-                                    name="eye"
-                                    color="grey"
-                                    size={20}
-                                />
-                            }
-                        </TouchableOpacity>
-                    </View>
                     <View style={styles.textPrivate}>
                         <Text style={styles.color_textPrivate}>
                             By signing up you agree to our
@@ -195,7 +224,7 @@ const SignInScreen = ({ navigation }) => {
                                 borderWidth: 1,
                                 marginTop: 15
                             }]}
-                            onPress={() => { }}
+                            onPress={() => SingUp()}
                         >
                             <View
                                 color="white"
@@ -208,7 +237,7 @@ const SignInScreen = ({ navigation }) => {
                         </TouchableOpacity>
 
                         <TouchableOpacity
-                            onPress={() => navigation.goBack()}
+                            onPress={() => props.navigation.navigate('Home')}
                             style={[styles.signIn, {
                                 borderColor: '#ff6600',
                                 borderWidth: 1,
