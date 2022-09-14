@@ -50,37 +50,33 @@ const Cards=(props)=> {
   }
     return (
 
-        <Content style={{margin:15,backgroundColor:"rgb(106, 109, 124)"}}  >
-
-          <TouchableHighlight underlayColor="rgb(255, 102, 0)" onPress={()=>Todetails()}>
-          <Card style={{flex: 0,borderColor:"rgb(106, 109, 124)",borderWidth:5}}>
+          <Card onPress={()=>Todetails()} style={{marginLeft:5,backgroundColor:"white",width:"48%",borderRadius:10,shadowColor: "#000",
+          shadowOffset: {
+            width: 10,
+            height: 16,
+          },
+          shadowOpacity: 0.37,
+          shadowRadius: 7.49,
+          
+          elevation: 12,}}>
             <CardItem  >
-              <Left style={{marginLeft:-5}} >
-              <Body style={{marginLeft:-5}} >
-                <Image  source={props.IMAGE} style={{height: 250, width: 180, flex: 1}}/>
+              <Body  >
+                <Image  source={props.IMAGE} style={{height: 120, width: "100%"}}/>
               </Body >
-              </Left>
-              <Right style={{marginLeft:40,marginTop:-10}}>
-              <CardItem>
-                  <Text  style={{fontSize:22}}>{props.DETAILS}</Text>
             </CardItem>
-              </Right>
-            </CardItem>
-            <CardItem style={{marginBottom:-5}}>
-                  <Text  style={{fontSize:20,fontWeight:"bold",fontStyle:"italic"}}>{props.TITLE}</Text>
+            <CardItem style={{height:70}} >
+                  <Text  style={{fontSize:18,fontWeight:"bold"}}>{props.TITLE}</Text>
   
             </CardItem>
-            <CardItem style={{marginTop:-5}}>
-                  <Text  style={{fontSize:25,textDecorationLine:"underline",color:"rgb(255, 102, 0)"}}>RS: {props.PRICE}</Text>
-                  <Right>
-                    <Button onPress={()=>AddToCart(props.userInfo.displayName,props.TITLE,props.PRICE,props.IMAGE.uri,1,props.DETAILS)} rounded warning style={{marginLeft:15,marginRight:-25}}   >
+            <CardItem style={{height:50,marginTop:-12}} >
+                  <Text  style={{fontSize:18,textDecorationLine:"underline",color:"#ff6600"}}>RS: {props.PRICE}</Text>
+            </CardItem>
+            <CardItem style={{marginTop:-10,alignSelf:"center"}}>
+            <Button onPress={()=>AddToCart(props.userInfo.displayName,props.TITLE,props.PRICE,props.IMAGE.uri,1,props.DETAILS)} rounded style={{backgroundColor:'#ff6600',height:35,width:130,alignSelf:"center"}}>
                       <Text>Add to Cart</Text>
                     </Button>
-                  </Right>
-            </CardItem>
+                    </CardItem>
           </Card>
-          </TouchableHighlight>
-        </Content>
     
     );
   

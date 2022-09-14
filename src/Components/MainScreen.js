@@ -64,15 +64,17 @@ function MainScreen(props){
 
   return(
       <>
-        <View  style={{backgroundColor:"#ff6600"}}>
-            <View style={{ margin: 7 }}>
-                    <Icon name='menu-sharp'
+        <View  style={{backgroundColor:"#ff6600",flexDirection:"row",justifyContent:"space-between"}}>
+            <View style={{ margin: 7, }}>
+                    <Icon  name='menu-sharp'
                         size={40}
                         color='white'
                         onPress={() => props.navigation.openDrawer()}
                     />
-           
                 </View>
+                <View style={{ margin: 7 }}>
+      <Icon size={40} color="white"  name="cart"/>
+           </View>
         </View>
         <ScrollView vertical={true}>
         <View>
