@@ -203,19 +203,23 @@ function GoogleSignIn(props) {
   if (!user) {
     return (
       <ScrollView style={styles.container} >
-        <View  style={{backgroundColor:"#ff6600"}}>
-            <View style={{ margin: 7 }}>
-                    <Icon name='menu-sharp'
-                        size={40}
-                        color='white'
-                        onPress={() => props.navigation.openDrawer()}
-                    />
-           
-                </View>
+        <View style={{ backgroundColor: "#ff6600" }}>
+          <View style={{ margin: 7 }}>
+            <Icon name='menu-sharp'
+              size={40}
+              color='white'
+              onPress={() => props.navigation.openDrawer()}
+            />
+
+          </View>
         </View>
         <View style={styles.header}>
           <Text style={styles.text_header}>Shopping App</Text>
         </View>
+
+        <FadeInView>
+          <Image style={{ alignSelf: "center", width: 150, height: 140, marginTop: -50, marginBottom: 10 }} source={require("../Images/Logo.png")} />
+        </FadeInView>
 
         <Animatable.View
           animation="fadeInUpBig"
@@ -224,9 +228,7 @@ function GoogleSignIn(props) {
               backgroundColor: "white"
             }]}
         >
-          <FadeInView>
-            <Image style={{ alignSelf: "center", width: 150, height: 140 }} source={require("../Images/Logo.png")} />
-          </FadeInView>
+
           <Text style={[styles.text_footer, {
             color: '#1f1f14'
           }]}>Username</Text>
@@ -321,7 +323,6 @@ function GoogleSignIn(props) {
                 borderColor: '#ff6600',
                 backgroundColor: '#ff6600',
                 borderWidth: 1,
-                marginTop: 15
               }]}
               onPress={() => { loginHandle(data.username, data.password) }}
             >
@@ -346,7 +347,7 @@ function GoogleSignIn(props) {
               }]}>Sign Up</Text>
             </TouchableOpacity>
           </View>
-          <GoogleSigninButton style={{ margin: 30, alignSelf: "center", height: 65 }}
+          <GoogleSigninButton style={{ marginLeft: 30, marginRight: 30, marginTop: 10, alignSelf: "center", height: 65 }}
             size={GoogleSigninButton.Size.Wide}
 
             onPress={() => onGoogleButtonPress().then(() => console.log('Signed in with Google!'))}
@@ -366,66 +367,69 @@ function GoogleSignIn(props) {
 
       <>
 
-        <View style={{ backgroundColor: "rgb(80, 80, 90)" }}>
+        <View style={{ backgroundColor: "#ff6600" }}>
           <View style={{ margin: 7 }}>
             <Icon name='menu-sharp'
               size={40}
-              color='#ff6600'
+              color='white'
               onPress={() => props.navigation.openDrawer()}
             />
 
           </View>
         </View>
 
-        <View style={{ flex: 1, alignItems: 'center', paddingTop: 70, backgroundColor: 'white' }}>
+        <View style={styles.container}>
 
-          <Avatar.Image
-            source={{
-              uri: user.photoURL
-            }}
-            size={200}
-          />
-          <Text style={{
-            fontSize: 35,
-            fontWeight: 'bold',
-            color: '#ff6600',
-            textShadowColor: "rgb(106, 109, 124)",
-            textShadowOffset: { width: 1, height: 1 },
-            textShadowRadius: 15,
-            marginTop: 25
-          }}>WELCOME</Text>
-          <Text style={{
-            fontSize: 30,
-            fontWeight: 'bold',
-            color: '#ff6600',
-            textShadowColor: "rgb(106, 109, 124)",
-            textShadowOffset: { width: 1, height: 1 },
-            textShadowRadius: 15,
-            margin: 20,
-            textDecorationLine: "underline",
-            textTransform: "uppercase",
-          }}>{user.displayName}</Text>
+          <View style={styles.logoheader}>
+            <Animatable.View
+              animation="bounceIn"
+              duraton="1500"
+            >
+              <Avatar.Image
+                source={{
+                  uri: user.photoURL
+                }}
+                size={200}
+              />
+            </Animatable.View>
 
-          {/* <Text style={{
-        fontSize: 22,
-        fontWeight: 'bold',
-        color: '#ff6600',
-        textShadowColor: "rgb(106, 109, 124)",
-        textShadowOffset: { width: 1, height: 1 },
-        textShadowRadius: 15,
-        margin: 10
-    }}>{user.email}</Text> */}
-          <View style={{ margin: 55 }}>
-            <Button icon="logout"
-              mode="contained"
-              labelStyle={{ color: "white", fontSize: 20 }}
-              color="#ff6600"
-              title="SignOut"
-              onPress={() => signout()}
-            >SIGN OUT</Button>
           </View>
+          <Animatable.View
+            style={[styles.footer, {
+              backgroundColor: colors.background
+            }]}
+            animation="fadeInUpBig"
+          >
+            <Text style={[styles.title, {
+              color: colors.text
+            }]}>WELCOME!</Text>
 
+            <Text style={{
+              fontSize: 30,
+              fontWeight: 'bold',
+              color: '#ff6600',
+              textShadowColor: "rgb(106, 109, 124)",
+              textShadowOffset: { width: 1, height: 1 },
+              textShadowRadius: 5,
+              marginTop: 20,
+              textTransform: "uppercase",
+              textAlign: "center"
+            }}>{user.displayName}</Text>
+
+
+            <View style={{ margin: 70 }}>
+              <Button icon="logout"
+                mode="contained"
+                labelStyle={{ color: "white", fontSize: 20 }}
+                color="#ff6600"
+                title="SignOut"
+                onPress={() => signout()}
+              >SIGN OUT</Button>
+            </View>
+
+          </Animatable.View>
         </View>
+
       </>
     )
   }
@@ -450,11 +454,10 @@ function mapDispatchToProps(dispatch) {
 
 export default connect(mapStateToProps, mapDispatchToProps)(GoogleSignIn)
 
-
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#ff6600'
+    backgroundColor: '#FF8C00'
   },
   header: {
     flex: 1,
@@ -463,7 +466,7 @@ const styles = StyleSheet.create({
     paddingBottom: 50,
     textAlign: "center",
     alignItems: "center",
-    marginTop: 40
+    marginTop: 10
   },
   footer: {
     flex: 3,
@@ -471,7 +474,7 @@ const styles = StyleSheet.create({
     borderTopLeftRadius: 30,
     borderTopRightRadius: 30,
     paddingHorizontal: 30,
-    paddingVertical: 15
+    paddingVertical: 20
   },
   text_header: {
     color: '#fff',
@@ -511,7 +514,7 @@ const styles = StyleSheet.create({
   },
   button: {
     alignItems: 'center',
-    marginTop: 50
+    marginTop: 25
   },
   signIn: {
     width: '100%',
@@ -523,5 +526,20 @@ const styles = StyleSheet.create({
   textSign: {
     fontSize: 18,
     fontWeight: 'bold'
+  },
+  title: {
+    color: '#1f1f14',
+    fontSize: 22,
+    fontWeight: 'bold',
+    textAlign: "center"
+  },
+  logoheader: {
+    flex: 1,
+    justifyContent: 'center',
+    paddingHorizontal: 20,
+    paddingBottom: 150,
+    textAlign: "center",
+    alignItems: "center",
+    marginTop: 150
   }
 });
