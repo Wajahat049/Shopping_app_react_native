@@ -71,7 +71,6 @@ function MainScreen(props) {
             color='white'
             onPress={() => props.navigation.openDrawer()}
           />
-
         </View>
       </View>
       <ScrollView style={{ backgroundColor: "white" }} vertical={true}>

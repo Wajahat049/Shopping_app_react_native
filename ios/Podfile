@@ -12,6 +12,10 @@ target 'Shopping_App' do
     :hermes_enabled => false
   )
 
+  pod 'react-native-stripe-payments', :path => '../node_modules/react-native-stripe-payments'
+
+  pod 'RNVectorIcons', :path => '../node_modules/react-native-vector-icons'
+
   target 'Shopping_AppTests' do
     inherit! :complete
     # Pods for testing

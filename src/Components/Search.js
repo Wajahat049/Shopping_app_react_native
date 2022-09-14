@@ -27,6 +27,7 @@ setitemlst([])
     database().ref(`/Products/${lst[i]}/`).once("value").then(snapshot=>{
 
     var allitms = Object.values(snapshot.val())
+    console.log("ALL SEARCH",allitms)
       allitms.map((itm)=>{
         var searchin=itm.Title.split(" ")
         if(
@@ -63,7 +64,7 @@ setitemlst([])
         onChangeText={(searchQuery)=>setSearchQuery(searchQuery)}
         value={searchQuery}
       />
-      <ScrollView>
+      <ScrollView style={{margin:10}}>
 
          {itemlst.map((element,index)=>{
            return(
