@@ -108,24 +108,24 @@ function MainScreen(props) {
             <Text style={{ color: "black", fontSize: 20, textAlign: "center", marginTop: 5 }}>Shoes</Text>
           </TouchableOpacity>
           <TouchableOpacity onPress={() => Category(CategoryList[0])} style={{ flexDirection: 'column', width: 90, height: 90, margin: 15, backgroundColor: 'white', color: '#ff6600' }}>
-            <Image source={{ uri: "https://cdn-icons-png.flaticon.com/512/1220/1220648.png?w=360&t=st=1662999754~exp=1663000354~hmac=7c6f3e9f29968f97c00a4c163a85854ed954f6369034ba769ad8c9e8e8c204bd" }} style={{ width: 80, height: 80, marginLeft: 5 }} />
-            <Text style={{ color: "black", fontSize: 20, textAlign: "center", marginTop: 5 }}>Clothes</Text>
+            <Image source={{ uri: "https://static.vecteezy.com/system/resources/thumbnails/000/161/078/small_2x/Accessories_Icon_Pack-.jpg" }} style={{ width: 90, height: 80, }} />
+            <Text style={{ color: "black", fontSize: 19, textAlign: "center", marginTop: 5 }}>Accessory</Text>
           </TouchableOpacity>
         </View>
 
         <View style={{ flexDirection: 'row', marginTop: 20, alignSelf: "center", marginBottom: 30 }}>
           <TouchableOpacity onPress={() => Category(CategoryList[0])} style={{ flexDirection: 'column', width: 90, height: 90, margin: 15, backgroundColor: 'white', color: '#ff6600' }}>
-            <Image source={{ uri: "https://cdn-icons-png.flaticon.com/512/1255/1255272.png" }} style={{ width: 80, height: 80, marginLeft: 5 }} />
+            <Image source={{ uri: "https://previews.123rf.com/images/tovovan/tovovan1603/tovovan160300113/54276367-modern-smartphone-template-with-different-color-icons-vector-flat-design-elements.jpg" }} style={{ width: 50, height: 80, marginLeft: 17 }} />
             <Text style={{ color: "black", fontSize: 20, textAlign: "center" }}>Smart</Text>
             <Text style={{ color: "black", fontSize: 20, textAlign: "center" }}>Phones</Text>
 
           </TouchableOpacity>
           <TouchableOpacity onPress={() => Category(CategoryList[0])} style={{ flexDirection: 'column', width: 90, height: 90, margin: 15, backgroundColor: 'white', color: '#ff6600' }}>
-            <Image source={{ uri: "https://cdn-icons-png.flaticon.com/512/1238/1238802.png?w=360&t=st=1663000443~exp=1663001043~hmac=b52d4196db1b9c6095520a3d7726c63d3d881734010ec15d391e69315cc78a35" }} style={{ width: 80, height: 80, marginLeft: 5 }} />
+            <Image source={{ uri: "https://clipart.world/wp-content/uploads/2020/06/kids-toys.jpg" }} style={{ width: 80, height: 80, marginLeft: 5 }} />
             <Text style={{ color: "black", fontSize: 20, textAlign: "center" }}>Toys</Text>
           </TouchableOpacity>
           <TouchableOpacity onPress={() => Category(CategoryList[0])} style={{ flexDirection: 'column', width: 90, height: 90, margin: 15, backgroundColor: 'white', color: '#ff6600' }}>
-            <Image source={{ uri: "https://cdn-icons-png.flaticon.com/512/1187/1187001.png" }} style={{ width: 80, height: 80, marginLeft: 5 }} />
+            <Image source={{ uri: "https://static.vecteezy.com/system/resources/thumbnails/007/738/867/small/red-plastic-shopping-basket-full-of-groceries-products-shopping-at-the-supermarket-grocery-store-illustration-in-flat-style-grocery-set-vector.jpg" }} style={{ width: 80, height: 80, marginLeft: 5 }} />
             <Text style={{ color: "black", fontSize: 20, textAlign: "center" }}>Grocery</Text>
           </TouchableOpacity>
         </View>
